@@ -36,14 +36,14 @@ jobs:
         cache: maven
 
     - name: Test with Maven
-      run: mvn test
+      run: mvn test site
 
     # https://github.com/marketplace/actions/upload-a-build-artifact
-    - name: Upload jacoco results as artifact
+    - name: Upload test report as artifact
       uses: actions/upload-artifact@v6
       with:
-        name: Jacoco coverage results
-        path: target/site/jacoco
+        name: Test report
+        path: target/site
 
     - name: Cache build
       uses: actions/cache@v5
